@@ -1,0 +1,18 @@
+{{ define "error" }}
+<!DOCTYPE>
+<html lang="{{ .Conf.Lang }}">
+    <head>
+        {{ template "head" . }}
+    </head>
+    {{ template "header" . }}
+    <main class="container" style="flex: 1;">
+        <div class="valign-wrapper horizontal-align" style="height: 100%; flex-direction: column;">
+            <h1>{{ print .Error.Code " - " .Error.Text }}</h1>
+            <p>{{ .Error.Description }}</p>
+        </div>
+    </main>
+    {{ template "footer" . }}
+    <script src="/vscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
+{{ end }}

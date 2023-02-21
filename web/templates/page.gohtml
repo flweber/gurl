@@ -1,0 +1,40 @@
+{{ define "index" }}
+<!DOCTYPE html>
+<html lang="{{ .Conf.Lang }}">
+    <head>
+        {{ template "head" . }}
+    </head>
+    <body class="grey lighten-2">
+        {{ template "header" . }}
+        <main class="container" style="flex: 1;">
+            <div class="valign-wrapper horizontal-align" style="height: 100%">
+                <div id="shortener" class="row">
+                    <div id="modalHost"></div>
+                    <div class="col s12">
+                        <div class="input-field">
+                            <input id="urlInput" type="url" class="validate">
+                            <label for="urlInput">long Url</label>
+                        </div>
+                    </div>
+                    <div class="col s6"></div>
+                    <div class="col s6">
+                        <button id="shortUrlBtn" class="waves-effect waves-light btn {{ .Conf.Color }} accent-1" v-target="modalHost" onclick="return inject(event)">
+                            <i class="material-icons right">check</i>Shorten
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {{ template "footer" . }}
+        <script>
+            const input = document.getElementById("urlInput");
+            input.addEventListener("change", e => {
+                const btn = document.getElementById("shortUrlBtn");
+                btn.setAttribute("v-url", window.location.href + "?url=" + e.currentTarget.value);
+            });
+        </script>
+        <script src="/vscript.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
+{{ end }}

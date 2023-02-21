@@ -1,0 +1,16 @@
+{{ define "header" }}
+<header>
+    <nav>
+        <div class="nav-wrapper {{ .Conf.Color }} lighten-2">
+                    <span class="brand-logo">
+                        {{ if .Conf.Name }}
+                            {{ .Conf.Name | upper }}
+                        {{ else }}
+                            GURL
+                        {{- end -}}
+                    </span>
+            <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
+        </div>
+    </nav>
+</header>
+{{- end }}
