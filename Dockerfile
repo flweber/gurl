@@ -7,6 +7,7 @@ RUN go install; \
 RUN chmod +x /build/gurl
 COPY ./web/templates /build/web/templates/
 COPY ./web/static /build/web/static/
+ADD https://raw.githubusercontent.com/litvinav/vscript/main/vscript.js /build/web/static/vscript.js
 
 
 FROM alpine
